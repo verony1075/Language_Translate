@@ -4,9 +4,9 @@ from googletrans import Translator, LANGUAGES
 
 # Create the main window
 root = Tk()
-root.geometry('1100x320')  # Set the window size
-root.resizable(0, 0)  # Disable window resizing
-root['bg'] = 'pink'  # Set background color
+root.geometry('1100x320')
+root.resizable(0, 0)
+root['bg'] = 'pink'
 root.title('Real-time Translator')  # Set window title
 
 # Create a label for the title
