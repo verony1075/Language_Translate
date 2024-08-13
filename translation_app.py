@@ -1,4 +1,3 @@
-# Import necessary modules
 from tkinter import *
 from tkinter import ttk
 from googletrans import Translator, LANGUAGES
