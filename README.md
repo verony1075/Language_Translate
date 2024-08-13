@@ -42,7 +42,7 @@ To get started with the Real-Time Translation App, follow these instructions:
 
 First, clone the repository to your local machine using Git. Open your terminal or command prompt and run:
 
-```bash
+
 git clone https://github.com/verony1075/Language_Translate.git
 
 
