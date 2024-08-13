@@ -2,7 +2,7 @@
 
 ## Overview
 
-Developed a user-friendly **Real-Time Translation App** using Python and Tkinter, designed to break down language barriers and facilitate seamless communication. The application leverages the Google Translate API to provide instant translations across multiple languages, enhancing user experience with an intuitive graphical user interface.
+Developed a user-friendly ** Language Translation App** using Python and Tkinter, designed to break down language barriers and facilitate seamless communication. The application leverages the Google Translate API to provide instant translations across multiple languages, enhancing user experience with an intuitive graphical user interface.
 
 ## Key Features
 
@@ -26,7 +26,7 @@ Developed a user-friendly **Real-Time Translation App** using Python and Tkinter
 
 ## Results
 
-The Real-Time Translation App provides a practical tool for overcoming language barriers in everyday communication. The application’s responsive design and efficient translation capabilities offer a valuable resource for users needing instant translation services.
+The  Language Translation App provides a practical tool for overcoming language barriers in everyday communication. The application’s responsive design and efficient translation capabilities offer a valuable resource for users needing instant translation services.
 
 ## Future Enhancements
 
