@@ -1,69 +1,51 @@
-from tkinter import *
+# Import required libraries
+from tkinter import Tk, Label, Entry, Text, Button, WORD
 from tkinter import ttk
 from googletrans import Translator, LANGUAGES
 
-# Create the main window
-root = Tk()
-root.geometry('1100x320')
-root.resizable(0, 0)
-root['bg'] = 'pink'
-root.title('Real-time Translator')
-
-
-Label(root, text="Language Translator", font="Arial 20 bold").pack()
-
-Label(root, text="Enter Text", font='arial 13 bold', bg='white smoke').place(x=165, y=90)
-
-# Create an entry widget for user input
-Input_text = Entry(root, width=60)
-Input_text.place(x=30, y=130)
-
-# Create a label for the output
-Label(root, text="Output", font='arial 13 bold', bg='white smoke').place(x=780, y=90)
-
-# Create a text widget for displaying the translation
-Output_text = Text(root, font='arial 10', height=5, wrap=WORD, padx=5, pady=5, width=50)
-Output_text.place(x=600, y=130)
-
-# Retrieve language codes and names for the combobox
-language_codes = list(LANGUAGES.keys())
-language_names = list(LANGUAGES.values())
-
-# Create a combobox for selecting the destination language
-dest_lang = ttk.Combobox(root, values=language_names, width=22)
-dest_lang.place(x=130, y=180)
-dest_lang.set('Choose Language')
-
-
-# Define the translation function
-def Translate():
+# Function to perform the translation
+def perform_translation():
     try:
+        # Create a Translator object with the selected language
         translator = Translator()
-        selected_lang_name = dest_lang.get()
+        target_language = language_selector.get()
+        translation_result = translator.translate(text_input.get(), dest=target_language).text
 
-        # Debug information
-        print(f"Selected language: {selected_lang_name}")
-
-        # Retrieve the language code from the selected language name
-        lang_code = [code for code, name in LANGUAGES.items() if name == selected_lang_name]
-
-        if lang_code:
-            translation = translator.translate(Input_text.get(), dest=lang_code[0])
-            Output_text.delete(1.0, END)
-            Output_text.insert(END, translation.text)
-        else:
-            Output_text.delete(1.0, END)
-            Output_text.insert(END, "Error: Selected language is not supported.")
+        # Update the output text widget with the translation
+        result_output.delete(1.0, 'end')
+        result_output.insert('end', translation_result)
     except Exception as e:
-        print(f"Translation error: {e}")
-        Output_text.delete(1.0, END)
-        Output_text.insert(END, "Translation error.")
+        print(f"Error during translation: {e}")
 
+# Set up the main application window
+app = Tk()
+app.geometry('1200x500')  # Increase height for better spacing
+app.resizable(0, 0)  # Disable resizing
+app.configure(bg='#E8F4F8')  # Light blue background color
+app.title('Language Translator')  # Window title
 
-# Create a button for triggering translation
-trans_btn = Button(root, text='Translate', font='arial 12 bold', pady=5, command=Translate, bg='orange',
-                   activebackground='green')
-trans_btn.place(x=445, y=180)
+# Create and place GUI components
+Label(app, text="Language Translator", font=("Helvetica", 24, "bold"), bg='#E8F4F8', fg='#333').pack(pady=20)
 
-# Run the Tkinter main loop
-root.mainloop()
+# Entry section
+Label(app, text="Enter Text:", font=("Helvetica", 14), bg='#E8F4F8', fg='#555').place(x=30, y=80)
+text_input = Entry(app, font=("Helvetica", 14), width=60, bd=2, relief='sunken')
+text_input.place(x=30, y=120)
+
+# Output section
+Label(app, text="Translation Output:", font=("Helvetica", 14), bg='#E8F4F8', fg='#555').place(x=650, y=80)
+result_output = Text(app, font=("Helvetica", 14), height=6, wrap=WORD, padx=10, pady=10, width=50, bd=2, relief='sunken')
+result_output.place(x=650, y=120)
+
+# Dropdown for selecting the target language
+available_languages = list(LANGUAGES.values())
+language_selector = ttk.Combobox(app, values=available_languages, font=("Helvetica", 14), width=22, state='readonly')
+language_selector.place(x=30, y=20)
+language_selector.set('Select Language')
+
+# Button to trigger the translation process
+translate_button = Button(app, text='Translate', font=("Helvetica", 14, "bold"), pady=10, command=perform_translation, bg='#4CAF50', fg='white', activebackground='#45A049')
+translate_button.place(x=30, y=270)
+
+# Start the Tkinter event loop
+app.mainloop()
