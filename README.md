@@ -44,3 +44,13 @@ First, clone the repository to your local machine using Git. Open your terminal 
 
 ```bash
 git clone https://github.com/verony1075/Language_Translate.git
+
+
+### Install Dependencies
+
+```bash
+# Tkinter is included with standard Python distributions and does not need to be installed separately.
+pip install googletrans==4.0.0-rc1
+pip install -r requirements.txt
+
+
