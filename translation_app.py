@@ -7,12 +7,11 @@ root = Tk()
 root.geometry('1100x320')
 root.resizable(0, 0)
 root['bg'] = 'pink'
-root.title('Real-time Translator')  # Set window title
+root.title('Real-time Translator')
 
-# Create a label for the title
+
 Label(root, text="Language Translator", font="Arial 20 bold").pack()
 
-# Create a label for the input text
 Label(root, text="Enter Text", font='arial 13 bold', bg='white smoke').place(x=165, y=90)
 
 # Create an entry widget for user input
