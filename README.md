@@ -20,10 +20,6 @@ Developed a user-friendly ** Language Translation App** using Python and Tkinter
 3. **Translation Logic:** Implemented a `Translate` function that interacts with the Google Translate API to fetch translations. Handled errors gracefully to ensure robust performance.
 4. **User Interaction:** Added a button to trigger the translation process, updating the output area with translated text upon user action.
 
-## Screenshots
-
-*(Add screenshots of the application interface here)*
-
 ## Results
 
 The  Language Translation App provides a practical tool for overcoming language barriers in everyday communication. The application’s responsive design and efficient translation capabilities offer a valuable resource for users needing instant translation services.
